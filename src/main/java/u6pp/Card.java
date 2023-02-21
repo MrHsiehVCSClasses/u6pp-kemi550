@@ -30,5 +30,40 @@ public class Card {
         DRAW_2, REVERSE, SKIP, WILD, WILD_DRAW_4};
 
     // start you code here
+    String color;
+    String value;
 
+    public Card(String color, String value){
+        this.color = color;
+        this.value = value;
+    }
+    public String getColor(){
+        return color;
+    }
+    public String getValue(){
+        return value;
+    }
+    public boolean trySetColor(String newColor){
+        for(String color : COLORS){
+            if(color.equalsIgnoreCase(newColor)){
+                if(value.equalsIgnoreCase(WILD)){
+                    this.color = newColor;
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean canPlayOn(Card card){
+            if(color.equalsIgnoreCase(color)){
+                return true;
+            }
+            for(String value : VALUES){
+                if(value.equalsIgnoreCase(value))
+                return true;
+            }
+        return false;
+    }
 }
