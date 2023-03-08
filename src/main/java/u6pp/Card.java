@@ -29,33 +29,38 @@ public class Card {
     public static String[] VALUES = {ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, 
         DRAW_2, REVERSE, SKIP, WILD, WILD_DRAW_4};
 
-    // start you code here
     String color;
     String value;
-
+    // Constructor 
     public Card(String color, String value){
         this.color = color;
         this.value = value;
     }
+    // get methods
     public String getColor(){
         return color;
     }
     public String getValue(){
         return value;
     }
-    public boolean trySetColor(String newColor){
-        for(String color : COLORS){
-            if(color.equalsIgnoreCase(newColor)){
-                if(value.equalsIgnoreCase(WILD)){
+    // tries to set the color of the card if it is wild 
+    public boolean trySetColor(String newColor) {
+        if (newColor == null) {
+            return false;
+        }
+        for (String color : COLORS) {
+            if (color.equalsIgnoreCase(newColor)) {
+                if (value.equalsIgnoreCase(WILD)) {
                     this.color = newColor;
                     return true;
-                }else{
+                } else {
                     return false;
                 }
             }
         }
         return false;
     }
+    // checks if you can play on the card (if value or color is valid to play on)
     public boolean canPlayOn(Card card){
             if(color.equalsIgnoreCase(color)){
                 return true;
@@ -66,4 +71,5 @@ public class Card {
             }
         return false;
     }
+    
 }
